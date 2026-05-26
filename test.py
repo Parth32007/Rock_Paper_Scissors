@@ -12,6 +12,6 @@ result=winner(
     computer
 )
 
-print("User :",player)
-print("Computer :",computer)
-print("Result :",result)
+print("User :", player)
+print("Computer :", computer)
+print("Result :", result)
