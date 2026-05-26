@@ -1,6 +1,6 @@
 # 🎮 Rock Paper Scissors Game
 
-A full-stack Rock Paper Scissors web application built using Flask, HTML, CSS, and JavaScript.
+A full-stack Rock Paper Scissors web application built using Python, Flask, HTML, CSS, and JavaScript.
 
 ## 🚀 Features
 - Interactive gameplay
