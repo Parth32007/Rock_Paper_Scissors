@@ -21,3 +21,5 @@ A full-stack Rock Paper Scissors web application built using Python, Flask, HTML
 Day 1 Completed 
 
 Day 2 Completed
+
+Day 3 Completed
