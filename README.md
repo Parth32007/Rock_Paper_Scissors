@@ -19,6 +19,7 @@ A full-stack Rock Paper Scissors web application built using Python, Flask, HTML
 
 ## 📁 Project Structure
 
+```bash
 Rock_Paper_Scissors/
 │
 ├── app.py
