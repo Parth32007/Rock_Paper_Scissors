@@ -44,11 +44,3 @@ Rock_Paper_Scissors/
 │
 └── models/
 
-## 📅 Development Progress
-Day 1 Completed 
-
-Day 2 Completed
-
-Day 3 Completed
-
-Day 4 Completed
