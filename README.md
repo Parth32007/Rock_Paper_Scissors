@@ -17,9 +17,37 @@ A full-stack Rock Paper Scissors web application built using Python, Flask, HTML
 - JavaScript
 - SQLite
 
+## 📁 Project Structure
+
+Rock_Paper_Scissors/
+│
+├── app.py
+├── README.md
+├── requirements.txt
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   │
+│   ├── js/
+│   │
+│   └── images/
+│
+├── templates/
+│   └── index.html
+│
+├── utils/
+│   └── game_logic.py
+│
+├── routes/
+│
+└── models/
+
 ## 📅 Development Progress
 Day 1 Completed 
 
 Day 2 Completed
 
 Day 3 Completed
+
+Day 4 Completed
