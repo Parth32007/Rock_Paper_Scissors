@@ -1,11 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from utils.game_logic import (computer_choice,winner)
 
 app=Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Rock Paper Scissors API Running"
+    return render_template("index.html")
 
 @app.route("/play", methods=["POST"])
 def play():
