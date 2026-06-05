@@ -1,14 +1,23 @@
 import random
 
-choices = ["rock","paper","scissors"]
+choices = ["rock", "paper", "scissors"]
 
-def computer_choice():
+
+def get_computer_choice():
     return random.choice(choices)
 
-def winner(player,computer):
-    if player==computer:
-        return "It's a tie!"
-    elif (player=="rock" and computer=="scissors") or (player=="paper" and computer=="rock") or (player=="scissors" and computer=="paper"):
-        return "You win!"
+
+def determine_winner(user, computer):
+
+    if user == computer:
+        return "Draw"
+
+    elif (
+        (user == "rock" and computer == "scissors") or
+        (user == "paper" and computer == "rock") or
+        (user == "scissors" and computer == "paper")
+    ):
+        return "You Win"
+
     else:
-        return "Computer wins!"
+        return "Computer Wins"

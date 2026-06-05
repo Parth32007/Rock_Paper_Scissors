@@ -8,6 +8,7 @@
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
 
     <div class="container">
@@ -16,15 +17,18 @@
 
         <div class="buttons">
 
-            <button class="choice-btn">
+            <button class="choice-btn"
+                    onclick="playGame('rock')">
                 ✊ Rock
             </button>
 
-            <button class="choice-btn">
+            <button class="choice-btn"
+                    onclick="playGame('paper')">
                 ✋ Paper
             </button>
 
-            <button class="choice-btn">
+            <button class="choice-btn"
+                    onclick="playGame('scissors')">
                 ✌️ Scissors
             </button>
 
@@ -34,15 +38,23 @@
 
             <h2>Game Result</h2>
 
-            <p>Your Choice: -</p>
+            <p id="user-choice">
+                Your Choice: -
+            </p>
 
-            <p>Computer Choice: -</p>
+            <p id="computer-choice">
+                Computer Choice: -
+            </p>
 
-            <p>Winner: -</p>
+            <p id="winner">
+                Winner: -
+            </p>
 
         </div>
 
     </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>

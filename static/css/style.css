@@ -17,12 +17,14 @@ body{
 }
 
 .container{
-    text-align:center;
     width:80%;
+    max-width:700px;
+    text-align:center;
 }
 
 h1{
     margin-bottom:40px;
+    font-size:40px;
 }
 
 .buttons{
@@ -32,13 +34,11 @@ h1{
 .choice-btn{
 
     padding:15px 30px;
-
     margin:10px;
 
     font-size:18px;
 
     border:none;
-
     border-radius:10px;
 
     cursor:pointer;
@@ -47,8 +47,10 @@ h1{
 }
 
 .choice-btn:hover{
+
     transform:scale(1.1);
-    box-shadow:0px 0px 15px white;
+
+    box-shadow:0 0 15px white;
 }
 
 .result-box{
@@ -58,4 +60,15 @@ h1{
     padding:25px;
 
     border-radius:15px;
+}
+
+.result-box h2{
+    margin-bottom:20px;
+}
+
+.result-box p{
+
+    margin-top:15px;
+
+    font-size:20px;
 }
