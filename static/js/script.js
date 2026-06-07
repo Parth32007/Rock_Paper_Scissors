@@ -1,3 +1,26 @@
+let wins =
+    Number(localStorage.getItem("wins")) || 0;
+
+let losses =
+    Number(localStorage.getItem("losses")) || 0;
+
+let draws =
+    Number(localStorage.getItem("draws")) || 0;
+
+updateScoreboard();
+
+function updateScoreboard(){
+
+    document.getElementById("wins").textContent =
+        wins;
+
+    document.getElementById("losses").textContent =
+        losses;
+
+    document.getElementById("draws").textContent =
+        draws;
+}
+
 async function playGame(choice) {
 
     try {
@@ -31,16 +54,44 @@ async function playGame(choice) {
 
         if (data.result === "You Win") {
 
-            winnerElement.style.color = "lightgreen";
+        wins++;
 
-        } else if (data.result === "Computer Wins") {
+        winnerElement.style.color =
+            "lightgreen";
 
-            winnerElement.style.color = "red";
-
-        } else {
-
-            winnerElement.style.color = "orange";
         }
+        else if (data.result === "Computer Wins")  {
+
+        losses++;
+
+        winnerElement.style.color =
+            "red";
+
+        }
+        else {
+
+        draws++;
+
+        winnerElement.style.color =
+            "orange";
+        }
+
+        localStorage.setItem(
+            "wins",
+            wins
+        );
+
+        localStorage.setItem(
+            "losses",
+            losses
+        );
+
+        localStorage.setItem(
+            "draws",
+            draws
+        );
+
+        updateScoreboard();
 
     } catch (error) {
 
@@ -48,4 +99,28 @@ async function playGame(choice) {
 
         alert("Something went wrong!");
     }
+}
+
+function resetScores(){
+
+    wins = 0;
+    losses = 0;
+    draws = 0;
+
+    localStorage.setItem(
+        "wins",
+        0
+    );
+
+    localStorage.setItem(
+        "losses",
+        0
+    );
+
+    localStorage.setItem(
+        "draws",
+        0
+    );
+
+    updateScoreboard();
 }
