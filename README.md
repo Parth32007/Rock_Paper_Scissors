@@ -21,26 +21,28 @@ A full-stack Rock Paper Scissors web application built using Python, Flask, HTML
 
 ```bash
 Rock_Paper_Scissors/
+├── app.py 
+├── requirements.txt 
+├── README.md 
 │
-├── app.py
-├── README.md
-├── requirements.txt
-│
-├── static/
-│   ├── css/
-│   │   └── style.css
+├── models/ 
+│   └── game.py 
+│ 
+├── utils/ 
+│   └── game_logic.py 
+│ 
+├── static/ 
+│   ├── css/ 
+│   │   └── style.css 
 │   │
-│   ├── js/
+│   ├── js/ 
+│   │   └── script.js 
 │   │
-│   └── images/
-│
-├── templates/
-│   └── index.html
-│
-├── utils/
-│   └── game_logic.py
-│
-├── routes/
-│
-└── models/
-
+│   └── images/ 
+│ 
+├── templates/ 
+│   ├── index.html 
+│   └── history.html 
+│ 
+└── instance/ 
+    └── game_history.db
