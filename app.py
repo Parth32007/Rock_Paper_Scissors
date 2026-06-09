@@ -3,9 +3,34 @@ from utils.game_logic import (
     get_computer_choice,
     determine_winner
 )
+from flask import (
+    Flask,
+    render_template,
+    request,
+    jsonify
+)
+
+from utils.game_logic import (
+    get_computer_choice,
+    determine_winner
+)
+
+from models.game import (
+    db,
+    GameHistory
+)
 
 app = Flask(__name__)
 
+app.config[
+    "SQLALCHEMY_DATABASE_URI"
+] = "sqlite:///game_history.db"
+
+app.config[
+    "SQLALCHEMY_TRACK_MODIFICATIONS"
+] = False
+
+db.init_app(app)
 
 @app.route("/")
 def home():
@@ -40,6 +65,15 @@ def play():
         computer_choice
     )
 
+    new_game = GameHistory(
+        user_choice=user_choice,
+        computer_choice=computer_choice,
+        result=result
+    )
+
+    db.session.add(new_game)
+    db.session.commit()
+
     # Return result
     return jsonify({
         "user": user_choice,
@@ -47,6 +81,20 @@ def play():
         "result": result
     })
 
+@app.route("/history")
+def history():
+
+    games = GameHistory.query.order_by(
+        GameHistory.played_at.desc()
+    ).all()
+
+    return render_template(
+        "history.html",
+        games=games
+    )
+
+with app.app_context():
+    db.create_all()
 
 if __name__ == "__main__":
     app.run(debug=True)
