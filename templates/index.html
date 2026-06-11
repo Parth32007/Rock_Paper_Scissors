@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Rock Paper Scissors</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 
 <body>
@@ -15,82 +21,142 @@
 
         <h1>🎮 Rock Paper Scissors</h1>
 
+        <!-- Player Name Section -->
+
+        <div class="player-section">
+
+            <input
+                type="text"
+                id="player-name"
+                placeholder="Enter your name">
+
+            <button onclick="saveName()">
+                Save Name
+            </button>
+
+        </div>
+
+        <h2 id="welcome-text">
+            Welcome Player!
+        </h2>
+
+        <!-- Scoreboard -->
+
         <div class="scoreboard">
 
             <div class="score-card">
+
                 <h3>🏆 Wins</h3>
+
                 <p id="wins">0</p>
+
             </div>
 
             <div class="score-card">
+
                 <h3>❌ Losses</h3>
+
                 <p id="losses">0</p>
+
             </div>
 
             <div class="score-card">
+
                 <h3>🤝 Draws</h3>
+
                 <p id="draws">0</p>
+
             </div>
 
         </div>
 
+        <!-- Total Games -->
+
+        <h3 id="total-games">
+            Total Games Played: 0
+        </h3>
+
+        <br>
+
+        <!-- Buttons -->
+
         <button id="reset-btn"
                 onclick="resetScores()">
-            Reset Score
-        </button>
 
-        <br><br>
+            Reset Score
+
+        </button>
 
         <a href="/history">
 
             <button id="reset-btn">
+
                 View Match History
+
             </button>
 
         </a>
-    </div>
 
-</div>
+        <br><br>
+
+        <!-- Game Choices -->
+
         <div class="buttons">
 
             <button class="choice-btn"
                     onclick="playGame('rock')">
+
                 ✊ Rock
+
             </button>
 
             <button class="choice-btn"
                     onclick="playGame('paper')">
+
                 ✋ Paper
+
             </button>
 
             <button class="choice-btn"
                     onclick="playGame('scissors')">
+
                 ✌️ Scissors
+
             </button>
 
         </div>
+
+        <!-- Result Box -->
 
         <div class="result-box">
 
             <h2>Game Result</h2>
 
             <p id="user-choice">
+
                 Your Choice: -
+
             </p>
 
             <p id="computer-choice">
+
                 Computer Choice: -
+
             </p>
 
             <p id="winner">
+
                 Winner: -
+
             </p>
 
         </div>
 
     </div>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}">
+    </script>
 
 </body>
+
 </html>
