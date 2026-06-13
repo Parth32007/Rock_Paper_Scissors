@@ -308,3 +308,30 @@ th{
         margin-left:0;
     }
 }
+
+.stats-box{
+
+    background:#1f1f1f;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin:20px 0;
+
+    box-shadow:0 0 10px rgba(230,194,191,0.2);
+}
+
+.stats-box h2{
+
+    color:#e6c2bf;
+
+    margin-bottom:15px;
+}
+
+.stats-box p{
+
+    margin:10px 0;
+
+    font-size:18px;
+}

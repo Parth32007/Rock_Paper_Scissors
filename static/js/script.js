@@ -9,6 +9,19 @@ let losses =
 let draws =
     Number(localStorage.getItem("draws")) || 0;
 
+let currentStreak =
+    Number(
+        localStorage.getItem(
+            "currentStreak"
+        )
+    ) || 0;
+
+let bestStreak =
+    Number(
+        localStorage.getItem(
+            "bestStreak"
+        )
+    ) || 0;
 
 // Run when page loads
 
@@ -17,6 +30,7 @@ window.onload = function () {
     updateScoreboard();
     updateTotalGames();
     loadPlayerName();
+    updateStatistics();
 
 };
 
@@ -96,6 +110,65 @@ function updateTotalGames() {
         total;
 }
 
+function updateStatistics(){
+
+    const total =
+        wins +
+        losses +
+        draws;
+
+    let winRate = 0;
+    let lossRate = 0;
+    let drawRate = 0;
+
+    if(total > 0){
+
+        winRate =
+            ((wins / total) * 100)
+            .toFixed(1);
+
+        lossRate =
+            ((losses / total) * 100)
+            .toFixed(1);
+
+        drawRate =
+            ((draws / total) * 100)
+            .toFixed(1);
+    }
+
+    document.getElementById(
+        "win-percent"
+    ).textContent =
+        "Win Rate: " +
+        winRate +
+        "%";
+
+    document.getElementById(
+        "loss-percent"
+    ).textContent =
+        "Loss Rate: " +
+        lossRate +
+        "%";
+
+    document.getElementById(
+        "draw-percent"
+    ).textContent =
+        "Draw Rate: " +
+        drawRate +
+        "%";
+
+    document.getElementById(
+        "current-streak"
+    ).textContent =
+        "Current Win Streak: " +
+        currentStreak;
+
+    document.getElementById(
+        "best-streak"
+    ).textContent =
+        "Best Win Streak: " +
+        bestStreak;
+}
 
 // Reset scores
 
@@ -120,8 +193,23 @@ function resetScores() {
         0
     );
 
+    currentStreak = 0;
+
+    bestStreak = 0;
+
+    localStorage.setItem(
+        "currentStreak",
+        0
+    );
+
+    localStorage.setItem(
+        "bestStreak",
+        0
+    );
+
     updateScoreboard();
     updateTotalGames();
+    updateStatistics();
 }
 
 
@@ -175,16 +263,28 @@ async function playGame(choice) {
 
             wins++;
 
+            currentStreak++;
+
+            if(
+                currentStreak >
+                bestStreak
+            ){
+                bestStreak =
+                    currentStreak;
+            }
+
             winnerElement.style.color =
                 "lightgreen";
 
         }
         else if (
             data.result ===
-            "Computer Wins"
+                "Computer Wins"
         ) {
 
             losses++;
+
+            currentStreak = 0;
 
             winnerElement.style.color =
                 "red";
@@ -214,8 +314,19 @@ async function playGame(choice) {
             draws
         );
 
+        localStorage.setItem(
+            "currentStreak",
+            currentStreak
+        );
+
+        localStorage.setItem(
+            "bestStreak",
+            bestStreak
+        );
+
         updateScoreboard();
         updateTotalGames();
+        updateStatistics();
 
     }
     catch (error) {
