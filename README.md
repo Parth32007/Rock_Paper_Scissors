@@ -1,13 +1,17 @@
-# 🎮 Rock Paper Scissors Game
+# 🎮 Rock Paper Scissors Pro
 
 A full-stack Rock Paper Scissors web application built using Python, Flask, HTML, CSS, and JavaScript.
 
 ## 🚀 Features
-- Interactive gameplay
-- Flask backend
-- Responsive UI
-- Score tracking
-- Database integration (coming soon)
+- ## Features
+
+- Interactive Gameplay
+- Live Scoreboard
+- Match History
+- Player Personalization
+- Statistics Dashboard
+- Win Streak Tracking
+- Responsive Design
 
 ## 🛠 Tech Stack
 - Python
@@ -46,3 +50,13 @@ Rock_Paper_Scissors/
 │ 
 └── instance/ 
     └── game_history.db
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home Page](static/images/home-page.png)
+
+### Match History
+
+![History](static/images/history-page.png)
